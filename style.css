@@ -1,0 +1,426 @@
+/* ==========================================
+   French Classical Menu Challenge
+   Version 1.0
+========================================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+
+    font-family:Arial, Helvetica, sans-serif;
+
+    background:#f7f4ee;
+
+    color:#333;
+
+    min-height:100vh;
+
+    display:flex;
+
+    flex-direction:column;
+
+}
+
+/* ==========================
+   Header
+========================== */
+
+header{
+
+    background:#0f5132;
+
+    color:white;
+
+    padding:35px 20px;
+
+    text-align:center;
+
+    box-shadow:0 3px 8px rgba(0,0,0,.15);
+
+}
+
+header h1{
+
+    font-size:2.2rem;
+
+    margin-bottom:10px;
+
+}
+
+.subtitle{
+
+    font-size:1rem;
+
+    opacity:.95;
+
+}
+
+/* ==========================
+   Main
+========================== */
+
+main{
+
+    width:100%;
+
+    max-width:900px;
+
+    margin:35px auto;
+
+    padding:0 20px;
+
+}
+
+/* ==========================
+   Card
+========================== */
+
+.game-card{
+
+    background:white;
+
+    border-radius:16px;
+
+    padding:25px;
+
+    box-shadow:0 8px 25px rgba(0,0,0,.08);
+
+}
+
+/* ==========================
+   Instructions
+========================== */
+
+.instructions{
+
+    margin-bottom:25px;
+
+}
+
+.instructions h2{
+
+    color:#0f5132;
+
+    margin-bottom:10px;
+
+}
+
+/* ==========================
+   Buttons
+========================== */
+
+.controls{
+
+    display:flex;
+
+    gap:15px;
+
+    flex-wrap:wrap;
+
+    margin-bottom:25px;
+
+}
+
+.controls button{
+
+    flex:1;
+
+    min-width:170px;
+
+    border:none;
+
+    padding:15px;
+
+    font-size:16px;
+
+    font-weight:bold;
+
+    border-radius:10px;
+
+    cursor:pointer;
+
+    transition:.25s;
+
+    color:white;
+
+}
+
+#shuffleBtn{
+
+    background:#6c757d;
+
+}
+
+#checkBtn{
+
+    background:#198754;
+
+}
+
+#resetBtn{
+
+    background:#0d6efd;
+
+}
+
+.controls button:hover{
+
+    transform:translateY(-2px);
+
+    opacity:.92;
+
+}
+
+/* ==========================
+   Score
+========================== */
+
+#scoreBox{
+
+    background:#f1f8f4;
+
+    border:2px solid #198754;
+
+    border-radius:12px;
+
+    padding:15px;
+
+    margin-bottom:25px;
+
+    text-align:center;
+
+}
+
+#scoreBox h2{
+
+    color:#198754;
+
+}
+
+#score{
+
+    font-size:32px;
+
+    font-weight:bold;
+
+    margin-top:8px;
+
+}
+
+/* ==========================
+   Heading
+========================== */
+
+.heading{
+
+    color:#0f5132;
+
+    margin-bottom:20px;
+
+}
+
+/* ==========================
+   Sortable List
+========================== */
+
+.sortable{
+
+    list-style:none;
+
+}
+
+/* ==========================
+   Cards
+========================== */
+
+.sortable li{
+
+    background:white;
+
+    border:2px solid #d6d6d6;
+
+    border-left:8px solid #198754;
+
+    border-radius:12px;
+
+    margin-bottom:12px;
+
+    padding:18px;
+
+    cursor:move;
+
+    transition:.2s;
+
+    user-select:none;
+
+    touch-action:none;
+
+}
+
+.sortable li:hover{
+
+    transform:scale(1.02);
+
+    box-shadow:0 4px 12px rgba(0,0,0,.12);
+
+}
+
+.sortable li.dragging{
+
+    opacity:.5;
+
+}
+
+/* ==========================
+   Course Text
+========================== */
+
+.course-name{
+
+    font-size:20px;
+
+    font-weight:bold;
+
+}
+
+.course-desc{
+
+    margin-top:6px;
+
+    color:#666;
+
+    font-size:15px;
+
+}
+
+/* ==========================
+   Correct / Incorrect
+========================== */
+
+.correct{
+
+    background:#d1e7dd !important;
+
+    border-left-color:#146c43 !important;
+
+}
+
+.incorrect{
+
+    background:#f8d7da !important;
+
+    border-left-color:#b02a37 !important;
+
+}
+
+/* ==========================
+   Congratulations
+========================== */
+
+#successMessage{
+
+    margin-top:30px;
+
+    background:#d1e7dd;
+
+    border-radius:15px;
+
+    padding:25px;
+
+    text-align:center;
+
+    animation:fadeIn .5s ease;
+
+}
+
+.hidden{
+
+    display:none;
+
+}
+
+@keyframes fadeIn{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(15px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+/* ==========================
+   Footer
+========================== */
+
+footer{
+
+    margin-top:auto;
+
+    background:#0f5132;
+
+    color:white;
+
+    text-align:center;
+
+    padding:20px;
+
+}
+
+/* ==========================
+   Mobile
+========================== */
+
+@media (max-width:768px){
+
+header h1{
+
+    font-size:1.7rem;
+
+}
+
+.controls{
+
+    flex-direction:column;
+
+}
+
+.controls button{
+
+    width:100%;
+
+}
+
+.course-name{
+
+    font-size:18px;
+
+}
+
+.course-desc{
+
+    font-size:14px;
+
+}
+
+#score{
+
+    font-size:28px;
+
+}
+
+}
