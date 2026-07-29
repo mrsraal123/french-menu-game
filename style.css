@@ -258,6 +258,9 @@ main{
     user-select:none;
 
     touch-action:none;
+    display:flex;
+align-items:center;
+gap:15px;
 
 }
 
@@ -422,5 +425,53 @@ header h1{
     font-size:28px;
 
 }
+
+}
+/* ==========================================
+   Drag Handle
+========================================== */
+
+.drag-handle{
+
+    font-size:28px;
+
+    color:#198754;
+
+    font-weight:bold;
+
+    cursor:grab;
+
+    min-width:30px;
+
+    text-align:center;
+
+}
+
+.card-text{
+
+    flex:1;
+
+}
+/* ===========================
+   SortableJS Effects
+=========================== */
+
+.dragging{
+
+    opacity:0.5;
+
+}
+
+.chosen{
+
+    transform:scale(1.02);
+
+    box-shadow:0 10px 20px rgba(0,0,0,.15);
+
+}
+
+.drag{
+
+    transform:rotate(1deg);
 
 }
