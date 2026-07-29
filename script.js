@@ -174,3 +174,116 @@ const sortable = new Sortable(menuList, {
     touchStartThreshold: 5
 
 });
+/* ==========================================
+   Check Answers
+========================================== */
+/* ==========================================
+   Confetti Celebration
+========================================== */
+
+function celebrate() {
+
+    confetti({
+        particleCount: 120,
+        angle: 60,
+        spread: 80,
+        origin: { x: 0 }
+    });
+
+    confetti({
+        particleCount: 120,
+        angle: 120,
+        spread: 80,
+        origin: { x: 1 }
+    });
+
+    confetti({
+        particleCount: 180,
+        spread: 120,
+        origin: { y: 0.6 }
+    });
+
+}
+function checkAnswers() {
+
+    const cards = document.querySelectorAll("#menuList li");
+
+    let correct = 0;
+
+    cards.forEach((card, index) => {
+
+        card.classList.remove("correct");
+        card.classList.remove("incorrect");
+
+        if (card.dataset.french === menuItems[index].french) {
+
+            card.classList.add("correct");
+            correct++;
+
+        } else {
+
+            card.classList.add("incorrect");
+
+        }
+
+    });
+
+    score.textContent = `${correct} / ${menuItems.length}`;
+
+if (correct === menuItems.length) {
+
+    successMessage.classList.remove("hidden");
+
+    celebrate();
+
+} else {
+
+    successMessage.classList.add("hidden");
+
+}
+
+}
+
+/* ==========================================
+   Button Events
+========================================== */
+
+document
+    .getElementById("checkBtn")
+    .addEventListener("click", checkAnswers);
+    /* ==========================================
+   Play Again
+========================================== */
+
+function playAgain() {
+
+    gameItems = [...menuItems];
+
+    successMessage.classList.add("hidden");
+
+    score.textContent = "0 / 17";
+
+    renderCards();
+
+}
+
+document
+    .getElementById("resetBtn")
+    .addEventListener("click", playAgain);
+    /* ==========================================
+   Shuffle Button
+========================================== */
+
+document
+    .getElementById("shuffleBtn")
+    .addEventListener("click", () => {
+
+        gameItems = [...menuItems];
+
+        renderCards();
+
+        score.textContent = "0 / 17";
+
+        successMessage.classList.add("hidden");
+
+    });
